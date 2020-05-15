@@ -1,16 +1,5 @@
 import React, { Component } from 'react';
-import config from './config';
 class Dog extends Component {
-  state = {
-    currentDog: {},
-  };
-
-  componentDidMount() {
-    fetch(`${config.API_ENDPOINT}/api/pets/dogs`)
-      .then((res) => res.json())
-      .then((data) => this.setState({ currentDog: data.nextDog }));
-  }
-
   render() {
     const {
       age,
@@ -20,7 +9,7 @@ class Dog extends Component {
       imageURL,
       name,
       story,
-    } = this.state.currentDog;
+    } = this.props.currentDog;
     return (
       <div className="pet">
         <h2>{name}</h2>
@@ -30,6 +19,7 @@ class Dog extends Component {
         <p>Gender: {gender}</p>
         <p>Description: {description}</p>
         <p>Story: {story}</p>
+        {this.props.userCanAdopt && <button>Adopt</button>}
       </div>
     );
   }

@@ -15,6 +15,8 @@ class Adoption extends Component {
 
   componentDidMount = () => {
     this.fetchPeople();
+    this.fetchDog();
+    this.fetchCat();
   };
 
   componentWillUnmount = () => {
@@ -27,8 +29,20 @@ class Adoption extends Component {
       .then((data) => this.setState({ people: data.people }));
   };
 
+  fetchDog = () => {
+    fetch(`${config.API_ENDPOINT}/api/pets/dogs`)
+      .then((res) => res.json())
+      .then((data) => this.setState({ currentDog: data.nextDog }));
+  };
+
+  fetchCat = () => {
+    fetch(`${config.API_ENDPOINT}/api/pets/cats`)
+      .then((res) => res.json())
+      .then((data) => this.setState({ currentCat: data.nextCat }));
+  };
+
   addPeople = (person) => {
-    this.setState({ people: [...this.state.people, person] });
+    this.setState({ people: [...(this.state.people || []), person] });
     this.setState({ currentUser: person });
   };
 
@@ -37,14 +51,18 @@ class Adoption extends Component {
       fetch(`${config.API_ENDPOINT}/api/people`, {
         method: 'DELETE',
       });
+      fetch(`${config.API_ENDPOINT}/api/pets/dogs`, {
+        method: 'DELETE',
+      });
       this.fetchPeople();
+      this.fetchDog();
       this.checkDemoStatus();
-    }, 5000);
+    }, 1000);
     this.setState({ intervalId });
   };
 
   checkDemoStatus = () => {
-    if (this.state.people[0] === this.state.currentUser) {
+    if (this.state.people[1] === this.state.currentUser) {
       clearInterval(this.state.intervalId);
       this.setState({ userCanAdopt: true });
     }
@@ -56,9 +74,8 @@ class Adoption extends Component {
         <h1>Adoption</h1>
         <p>Currently the following people are in line for adptions: </p>
         <ul>
-          {this.state.people.map((p) => (
-            <li key={p + Math.random()}>{p}</li>
-          ))}
+          {this.state.people &&
+            this.state.people.map((p) => <li key={p + Math.random()}>{p}</li>)}
         </ul>
         {!this.state.currentUser && (
           <AdoptionForm
@@ -74,8 +91,14 @@ class Adoption extends Component {
         )}
         {this.state.userCanAdopt && <p>Congrats, you're up!</p>}
         <p>These are the two pets next in line for adoption: </p>
-        <Dog />
-        <Cat />
+        <Dog
+          currentDog={this.state.currentDog}
+          userCanAdopt={this.state.userCanAdopt}
+        />
+        <Cat
+          currentCat={this.state.currentCat}
+          userCanAdopt={this.state.userCanAdopt}
+        />
       </>
     );
   }

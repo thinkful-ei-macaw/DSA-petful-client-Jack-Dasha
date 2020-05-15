@@ -17,7 +17,8 @@ class AdoptionForm extends Component {
       body: JSON.stringify({ name }),
     });
     this.props.addPeople(name);
-    this.state.name = '';
+    this.props.triggerDemo();
+    this.setState({ name: '' });
   };
 
   render() {

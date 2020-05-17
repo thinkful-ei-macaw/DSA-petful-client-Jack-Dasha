@@ -57,6 +57,7 @@ class Adoption extends Component {
       Utils.queueRandomPerson();
       this.fetchPeople();
       this.fetchDog();
+      this.fetchCat();
       this.checkDemoStatus();
     }, 1000);
     this.setState({ intervalId });
@@ -74,17 +75,26 @@ class Adoption extends Component {
 
   demoAdoptCat = () => {
     Utils.deleteCat();
+    this.props.history.push({
+      pathname: '/success',
+      state: this.state.currentCat,
+    });
   };
 
   demoAdoptDog = () => {
+    console.log('demoadopt fired');
     Utils.deleteDog();
+    this.props.history.push({
+      pathname: '/success',
+      state: this.state.currentDog,
+    });
   };
 
   render() {
     return (
       <>
         <h1>Adoption</h1>
-        <p>Currently the following people are in line for adptions: </p>
+        <p>Currently the following people are in line for adoptions: </p>
         <ul>
           {this.state.people &&
             this.state.people.map((p) => <li key={p + Math.random()}>{p}</li>)}
@@ -106,12 +116,12 @@ class Adoption extends Component {
         <Dog
           currentDog={this.state.currentDog}
           userCanAdopt={this.state.userCanAdopt}
-          demoAdopt={this.state.demoAdoptDog}
+          demoAdopt={this.demoAdoptDog}
         />
         <Cat
           currentCat={this.state.currentCat}
           userCanAdopt={this.state.userCanAdopt}
-          demoAdopt={this.state.demoAdoptCat}
+          demoAdopt={this.demoAdoptCat}
         />
       </>
     );

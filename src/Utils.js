@@ -32,7 +32,6 @@ function queueRandomPerson() {
 
 function demoRandomAdoption() {
   let n = Math.floor(Math.random() * 2);
-  console.log(n);
   if (n === 1) {
     deleteCat();
   } else {

@@ -1,44 +1,37 @@
-div.Confirmation {
-  background-image: url('/images/alexis-chloe-dD75iU5UAU4-unsplash.jpg');
-  font-family: 'Raleway', sans-serif;
-  font-weight: 200;
-  min-height: 100vh;
-  padding: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  text-align: center;
-}
-.conf-wrapper {
-  position: absolute;
-  left: 25px;
-  top: 25px;
-  right: 25px;
-  bottom: 25px;
-  color: white;
-  padding: 25px;
-  background-color: rgba(0, 0, 0, 0.5);
+.Confirmation h2 {
+  font-size: 4rem;
 }
 
-h2 {
-  margin-top: 15vh;
-
+.Confirmation p {
+  font-size: 1.1rem;
   text-align: center;
 }
 
-button {
-  padding: 0.5rem 2.5rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: white;
-  background: #1a2426;
-  border-radius: remy(35px);
-  margin: 5px;
+.Confirmation img {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  display: block;
 }
-button:hover,
-button#info:hover {
-  background-color: #a6948d;
-  cursor: pointer;
+
+.Confirmation a {
+  display: block;
+  text-decoration: none;
+  padding: 1rem;
+  border: 2px solid white;
+  border-radius: 4px;
+  box-shadow: 0px 3px 3px lightgray;
+  background-color: #1a2426;
+  color: white;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  font-family: sans-serif;
+}
+
+@media screen and (min-width: 800px) {
+  .Confirmation a {
+    max-width: 20%;
+  }
 }

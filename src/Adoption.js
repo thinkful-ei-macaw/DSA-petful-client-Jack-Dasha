@@ -108,13 +108,18 @@ class Adoption extends Component {
               addPeople={this.addPeople}
             />
           )}
-          {this.state.currentUser && (
+          {this.state.currentUser && !this.state.userCanAdopt && (
             <p>
               Great! Please wait in line. When your name comes up you'll see the
               option to adopt either pet.
             </p>
           )}
-          {this.state.userCanAdopt && <p>Congrats, you're up!</p>}
+          {this.state.userCanAdopt && (
+            <p>
+              Congrats, you're up! Take a look at the pets below and click the
+              'Adopt' button to adopt one of them.
+            </p>
+          )}
           <p>These are the two pets next in line for adoption: </p>
         </div>
         <div className="pet-wrapper">

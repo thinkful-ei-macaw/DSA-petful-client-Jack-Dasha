@@ -21,9 +21,7 @@ class Dog extends Component {
         <p>Description: {description}</p>
         <p>Story: {story}</p>
         {this.props.userCanAdopt && (
-          <Link to="/Confirmation">
-            <button type="button">Adopt</button>
-          </Link>
+          <button onClick={this.props.demoAdopt}>Adopt</button>
         )}
       </div>
     );

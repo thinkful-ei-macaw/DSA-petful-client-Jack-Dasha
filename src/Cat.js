@@ -20,7 +20,9 @@ class Cat extends Component {
         <p>Gender: {gender}</p>
         <p>Description: {description}</p>
         <p>Story: {story}</p>
-        {this.props.userCanAdopt && <button>Adopt</button>}
+        {this.props.userCanAdopt && (
+          <button onClick={this.props.demoAdopt}>Adopt</button>
+        )}
       </div>
     );
   }

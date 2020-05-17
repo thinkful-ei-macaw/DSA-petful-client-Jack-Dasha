@@ -3,6 +3,7 @@ import config from './config';
 import AdoptionForm from './AdoptionForm';
 import Dog from './Dog';
 import Cat from './Cat';
+import Utils from './Utils';
 class Adoption extends Component {
   state = {
     currentDog: {},
@@ -47,13 +48,13 @@ class Adoption extends Component {
   };
 
   demoOnly = () => {
+    // The requests made in the code below are stricly for demo purposes only.
+    // Here we both remove and add people to the queue inbetween you to sim
+    // people entering and leaving the line.
     const intervalId = setInterval(() => {
-      fetch(`${config.API_ENDPOINT}/api/people`, {
-        method: 'DELETE',
-      });
-      fetch(`${config.API_ENDPOINT}/api/pets/dogs`, {
-        method: 'DELETE',
-      });
+      Utils.deletePerson();
+      Utils.demoRandomAdoption();
+      Utils.queueRandomPerson();
       this.fetchPeople();
       this.fetchDog();
       this.checkDemoStatus();
@@ -62,10 +63,21 @@ class Adoption extends Component {
   };
 
   checkDemoStatus = () => {
-    if (this.state.people[1] === this.state.currentUser) {
+    // Because this project does not have auth right now, we simply store
+    // the name of the person getting in line and compare the next person in line
+    // with the one in our state at each interval.
+    if (this.state.people[0] === this.state.currentUser) {
       clearInterval(this.state.intervalId);
       this.setState({ userCanAdopt: true });
     }
+  };
+
+  demoAdoptCat = () => {
+    Utils.deleteCat();
+  };
+
+  demoAdoptDog = () => {
+    Utils.deleteDog();
   };
 
   render() {
@@ -94,10 +106,12 @@ class Adoption extends Component {
         <Dog
           currentDog={this.state.currentDog}
           userCanAdopt={this.state.userCanAdopt}
+          demoAdopt={this.state.demoAdoptDog}
         />
         <Cat
           currentCat={this.state.currentCat}
           userCanAdopt={this.state.userCanAdopt}
+          demoAdopt={this.state.demoAdoptCat}
         />
       </>
     );

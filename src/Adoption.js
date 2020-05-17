@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import config from './config';
 import AdoptionForm from './AdoptionForm';
-import Dog from './Dog';
-import Cat from './Cat';
+import PetInfo from './PetInfo';
 import Utils from './Utils';
 import './Adoption.css';
 class Adoption extends Component {
@@ -60,7 +59,7 @@ class Adoption extends Component {
       this.fetchDog();
       this.fetchCat();
       this.checkDemoStatus();
-    }, 1000);
+    }, 5000);
     this.setState({ intervalId });
   };
 
@@ -93,42 +92,44 @@ class Adoption extends Component {
 
   render() {
     return (
-        <div className="Adoption">
-          <div className="adoption-wrapper">
-            <h1>Adoption</h1>
-            <p>Currently the following people are in line for adptions: </p>
-            <ul>
-              {this.state.people &&
-                this.state.people.map((p) => (
-                  <li key={p + Math.random()}>{p}</li>
-                ))}
-            </ul>
-            {!this.state.currentUser && (
-              <AdoptionForm
-                triggerDemo={this.demoOnly}
-                addPeople={this.addPeople}
-              />
-            )}
-            {this.state.currentUser && (
-              <p>
-                Great! Please wait in line. When your name comes up you'll see
-                the option to adopt either pet.
-              </p>
-            )}
-            {this.state.userCanAdopt && <p>Congrats, you're up!</p>}
-            <p>These are the two pets next in line for adoption: </p>
-            <Dog
-              currentDog={this.state.currentDog}
-              userCanAdopt={this.state.userCanAdopt}
-              demoAdopt={this.demoAdoptDog}
+      <>
+        <div className="adoption-wrapper">
+          <h1>Adoption</h1>
+          <p>Currently the following people are in line for adptions: </p>
+          <ul>
+            {this.state.people &&
+              this.state.people.map((p) => (
+                <li key={p + Math.random()}>{p}</li>
+              ))}
+          </ul>
+          {!this.state.currentUser && (
+            <AdoptionForm
+              triggerDemo={this.demoOnly}
+              addPeople={this.addPeople}
             />
-            <Cat
-              currentCat={this.state.currentCat}
-              userCanAdopt={this.state.userCanAdopt}
-              demoAdopt={this.demoAdoptCat}
-            />
-          </div>
+          )}
+          {this.state.currentUser && (
+            <p>
+              Great! Please wait in line. When your name comes up you'll see the
+              option to adopt either pet.
+            </p>
+          )}
+          {this.state.userCanAdopt && <p>Congrats, you're up!</p>}
+          <p>These are the two pets next in line for adoption: </p>
         </div>
+        <div className="pet-wrapper">
+          <PetInfo
+            currentPet={this.state.currentDog}
+            userCanAdopt={this.state.userCanAdopt}
+            demoAdopt={this.demoAdoptDog}
+          />
+          <PetInfo
+            currentPet={this.state.currentCat}
+            userCanAdopt={this.state.userCanAdopt}
+            demoAdopt={this.demoAdoptCat}
+          />
+        </div>
+      </>
     );
   }
 }

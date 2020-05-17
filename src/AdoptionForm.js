@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import config from './config';
+import './AdoptionForm.css';
 
 class AdoptionForm extends Component {
   state = {

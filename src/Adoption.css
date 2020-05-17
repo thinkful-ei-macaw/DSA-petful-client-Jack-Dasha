@@ -1,37 +1,21 @@
-div.Adoption,
-div.AdoptionForm {
-  background-image: url('/images/alexis-chloe-dD75iU5UAU4-unsplash.jpg');
-  font-family: 'Raleway', sans-serif;
-  font-weight: 200;
-  min-height: 100vh;
-  padding: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  text-align: center;
-}
-
 div.pet {
   color: black;
 }
 ul {
-  list-style: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul > li {
+  padding: 0.5rem;
 }
 
 h2 {
   color: black;
+  text-align: center;
 }
-.adoption-wrapper {
-  position: absolute;
-  left: 25px;
-  top: 25px;
-  right: 25px;
-  bottom: 25px;
-  color: white;
-  padding: 25px;
-  background-color: rgba(0, 0, 0, 0.5);
-}
+
 button,
 input#submit {
   padding: 0.5rem 2.5rem;
@@ -47,7 +31,7 @@ input,
 input#name {
   background-color: white;
   font: black;
-  padding: 0.5rem 2.5rem;
+  padding: 0.45rem;
   font-size: 0.95rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -58,8 +42,15 @@ button#info:hover {
   cursor: pointer;
 }
 
-h2 {
-  margin-top: 15vh;
+@media screen and (min-width: 800px) {
+  .pet-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
-  text-align: center;
+  .adoption-wrapper {
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

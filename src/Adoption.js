@@ -95,7 +95,7 @@ class Adoption extends Component {
       <>
         <div className="adoption-wrapper">
           <h1>Adoption</h1>
-          <p>Currently the following people are in line for adptions: </p>
+          <p>Currently the following people are in line for adoptions: </p>
           <ul>
             {this.state.people &&
               this.state.people.map((p) => (

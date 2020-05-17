@@ -1,6 +1,5 @@
 div.Adoption,
-div.Cat,
-div.Dog {
+div.AdoptionForm {
   background-image: url('/images/alexis-chloe-dD75iU5UAU4-unsplash.jpg');
   font-family: 'Raleway', sans-serif;
   font-weight: 200;
@@ -21,7 +20,7 @@ ul {
 }
 
 h2 {
-  color: white;
+  color: black;
 }
 .adoption-wrapper {
   position: absolute;
@@ -33,7 +32,8 @@ h2 {
   padding: 25px;
   background-color: rgba(0, 0, 0, 0.5);
 }
-button {
+button,
+input#submit {
   padding: 0.5rem 2.5rem;
   font-size: 0.95rem;
   font-weight: 600;
@@ -43,13 +43,22 @@ button {
   border-radius: remy(35px);
   margin: 5px;
 }
+input,
+input#name {
+  background-color: white;
+  font: black;
+  padding: 0.5rem 2.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
 button:hover,
 button#info:hover {
   background-color: #a6948d;
   cursor: pointer;
 }
 
-h1 {
+h2 {
   margin-top: 15vh;
 
   text-align: center;

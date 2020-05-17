@@ -38,7 +38,7 @@ class AdoptionForm extends Component {
           value={this.state.name}
           onChange={(e) => this.setState({ name: e.target.value })}
         />
-        <input type="submit" />
+        <input type="submit" id="submit" />
       </form>
     );
   }

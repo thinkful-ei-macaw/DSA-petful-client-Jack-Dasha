@@ -26,3 +26,19 @@ h2 {
 
   text-align: center;
 }
+
+button {
+  padding: 0.5rem 2.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+  background: #1a2426;
+  border-radius: remy(35px);
+  margin: 5px;
+}
+button:hover,
+button#info:hover {
+  background-color: #a6948d;
+  cursor: pointer;
+}

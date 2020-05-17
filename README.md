@@ -24,6 +24,7 @@ To setup the application
 
 1. Fork and clone the project to your machine
 2. `npm install`.
+3. If you are running your own server locally, be sure to update `config.js` to match that address.
 
 ## Running project
 

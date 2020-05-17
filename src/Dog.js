@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 class Dog extends Component {
   render() {
     const {
@@ -19,7 +20,11 @@ class Dog extends Component {
         <p>Gender: {gender}</p>
         <p>Description: {description}</p>
         <p>Story: {story}</p>
-        {this.props.userCanAdopt && <button>Adopt</button>}
+        {this.props.userCanAdopt && (
+          <Link to="/Confirmation">
+            <button type="button">Adopt</button>
+          </Link>
+        )}
       </div>
     );
   }

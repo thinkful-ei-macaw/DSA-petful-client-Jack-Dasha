@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Landing from './Landing';
 import Adoption from './Adoption';
+import Confirmation from './Confirmation';
 
 import { Route } from 'react-router-dom';
 
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <Route exact path="/" component={Landing} />
       <Route exact path="/adoption" component={Adoption} />
+      <Route exact path="/confirmation" component={Confirmation} />
     </div>
   );
 }

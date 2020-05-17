@@ -1,7 +1,9 @@
-div.Landing {
+div.Adoption,
+div.Cat,
+div.Dog {
+  background-image: url('/images/alexis-chloe-dD75iU5UAU4-unsplash.jpg');
   font-family: 'Raleway', sans-serif;
   font-weight: 200;
-  background-image: url('/images/krista-mangulsone-9gz3wfHr65U-unsplash.jpg');
   min-height: 100vh;
   padding: 20px;
   background-repeat: no-repeat;
@@ -10,7 +12,18 @@ div.Landing {
   position: relative;
   text-align: center;
 }
-.landing-wrapper {
+
+div.pet {
+  color: black;
+}
+ul {
+  list-style: none;
+}
+
+h2 {
+  color: white;
+}
+.adoption-wrapper {
   position: absolute;
   left: 25px;
   top: 25px;

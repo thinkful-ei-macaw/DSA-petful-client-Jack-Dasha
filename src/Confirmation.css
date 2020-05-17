@@ -1,7 +1,7 @@
-div.Landing {
+div.Confirmation {
+  background-image: url('/images/alexis-chloe-dD75iU5UAU4-unsplash.jpg');
   font-family: 'Raleway', sans-serif;
   font-weight: 200;
-  background-image: url('/images/krista-mangulsone-9gz3wfHr65U-unsplash.jpg');
   min-height: 100vh;
   padding: 20px;
   background-repeat: no-repeat;
@@ -10,7 +10,7 @@ div.Landing {
   position: relative;
   text-align: center;
 }
-.landing-wrapper {
+.conf-wrapper {
   position: absolute;
   left: 25px;
   top: 25px;
@@ -20,23 +20,8 @@ div.Landing {
   padding: 25px;
   background-color: rgba(0, 0, 0, 0.5);
 }
-button {
-  padding: 0.5rem 2.5rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: white;
-  background: #1a2426;
-  border-radius: remy(35px);
-  margin: 5px;
-}
-button:hover,
-button#info:hover {
-  background-color: #a6948d;
-  cursor: pointer;
-}
 
-h1 {
+h2 {
   margin-top: 15vh;
 
   text-align: center;

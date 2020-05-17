@@ -45,6 +45,7 @@ button#info:hover {
 @media screen and (min-width: 800px) {
   .pet-wrapper {
     display: grid;
+    gap: auto 1rem;
     grid-template-columns: 1fr 1fr;
   }
 

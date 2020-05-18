@@ -2,6 +2,16 @@
 
 A first-in-first-out adoption page. See it live at: [petful.jacklansing.now.sh](petful.jacklansing.now.sh)
 
+# Team
+
+Dasha Akhten
+
+Jack Lansing
+
+# client repo : https://github.com/thinkful-ei-macaw/DSA-petful-client-Jack-Dasha
+
+# server repo: https://github.com/thinkful-ei-macaw/DSA-petful-server-Jack-Dasha
+
 ## How to demo:
 
 1. From the home page, click 'Click here to get started' button
